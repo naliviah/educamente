@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Rimas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-item img {
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .main-item p {
+            font-size: 2em;
+            font-weight: bold;
+            color: #d63031;
+            margin-top: 15px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            border: 2px solid #ddd;
+        }
+
+        .option:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.02);
+            border-color: #2196F3;
+        }
+        
+        .option img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .option p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 2em;
+            font-weight: bold;
+            height: 40px;
+        }
+
+        .correct {
+            border-color: #4CAF50 !important;
+            background-color: #e8f5e9 !important;
+        }
+
+        .incorrect {
+            border-color: #f44336 !important;
+            background-color: #ffebee !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>O QUE RIMA COM:</h1>
+    <div class="game-container">
+        <div class="main-item" id="main-rhyme">
+            </div>
+        
+        <div class="options-container" id="options">
+            </div>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        const gameData = {
+            mainItem: {
+                word: "GIRAFA",
+                imageSrc: "https://www.flaticon.com/svg/static/icons/svg/1966/1966205.svg", // URL da imagem da girafa
+                rhyme: "GARRAFA"
+            },
+            options: [
+                { word: "GARRAFA", imageSrc: "https://www.flaticon.com/svg/static/icons/svg/1057/1057630.svg", isCorrect: true },
+                { word: "SEREIA", imageSrc: "https://www.flaticon.com/svg/static/icons/svg/3050/3050732.svg", isCorrect: false },
+                { word: "PICOLÉ", imageSrc: "https://www.flaticon.com/svg/static/icons/svg/2539/2539077.svg", isCorrect: false }
+            ]
+        };
+
+        const mainRhymeDiv = document.getElementById('main-rhyme');
+        const optionsDiv = document.getElementById('options');
+        const messageDiv = document.getElementById('message');
+
+        // Renderiza o item principal
+        const renderMainItem = () => {
+            mainRhymeDiv.innerHTML = `
+                <img src="${gameData.mainItem.imageSrc}" alt="${gameData.mainItem.word}">
+                <p>${gameData.mainItem.word}</p>
+            `;
+        };
+
+        // Renderiza as opções
+        const renderOptions = () => {
+            // Embaralha as opções para que a ordem não seja sempre a mesma
+            const shuffledOptions = shuffle(gameData.options);
+
+            shuffledOptions.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.setAttribute('data-word', option.word);
+                optionDiv.innerHTML = `
+                    <img src="${option.imageSrc}" alt="${option.word}">
+                    <p>${option.word}</p>
+                `;
+                optionsDiv.appendChild(optionDiv);
+            });
+        };
+
+        // Função para embaralhar um array (copiada do exemplo anterior)
+        const shuffle = (array) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        };
+        
+        // Inicializa o jogo
+        renderMainItem();
+        renderOptions();
+
+        // Adiciona o evento de clique nas opções
+        optionsDiv.addEventListener('click', (e) => {
+            const optionElement = e.target.closest('.option');
+            if (optionElement) {
+                const selectedWord = optionElement.dataset.word;
+                
+                // Verifica se a palavra clicada é a correta
+                if (selectedWord === gameData.mainItem.rhyme) {
+                    messageDiv.textContent = 'Parabéns, você acertou!';
+                    messageDiv.style.color = 'green';
+                    optionElement.classList.add('correct');
+                    disableOptions(); // Impede mais cliques
+                } else {
+                    messageDiv.textContent = 'Ops, tente novamente.';
+                    messageDiv.style.color = 'red';
+                    optionElement.classList.add('incorrect');
+                }
+            }
+        });
+
+        // Função para desabilitar as opções após o acerto
+        const disableOptions = () => {
+            document.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'none'; // Desativa o clique
+            });
+        };
+    </script>
+</body>
+</html>

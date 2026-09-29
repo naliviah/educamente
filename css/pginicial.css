@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 2%;
+}
+
+/* Container principal */
+.container {
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3%;
+    max-width: 85%;
+    box-shadow: 0 0.5% 2% rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+.header {
+    margin-bottom: 3%;
+}
+
+/* Banner de boas-vindas */
+.welcome-banner {
+    background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+    border-radius: 20px;
+    padding: 2%;
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto 4%;
+}
+
+.welcome-title {
+    color: #3f51b5;
+    font-size: 1.6vw;
+    font-weight: bold;
+    margin-bottom: 0.8%;
+    line-height: 1.3;
+}
+
+.welcome-subtitle {
+    color: #5c6bc0;
+    font-size: 1vw;
+    line-height: 1.4;
+    max-width: 55%;
+    margin: 0 auto;
+}
+
+/* Imagem central */
+.img {
+    text-align: center;
+    margin: 3% 0;
+}
+
+.mascot-image {
+    width: 12%;
+    height: auto;
+}
+
+/* Botões de navegação */
+.navigation-buttons {
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -4%;
+}
+
+.nav-button {
+    padding: 3.2% 4%;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1vw;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 18%;
+    text-align: center;
+}
+
+.nav-button:hover {
+    transform: translateY(-3%);
+    box-shadow: 0 0.6% 2% rgba(0, 0, 0, 0.2);
+}
+
+/* Cores dos botões */
+.btn-knowledge {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+}
+
+.btn-student {
+    background: linear-gradient(135deg, #00bcd4, #0097a7);
+}
+
+.btn-activities {
+    background: linear-gradient(135deg, #e91e63, #ad1457);
+}
+
+/* Links dentro dos botões */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 4vw;
+    }
+
+    .welcome-subtitle {
+        font-size: 2.4vw;
+    }
+
+    .mascot-image {
+        width: 25%;
+    }
+
+    .nav-button {
+        width: 70%;
+        font-size: 2.6vw;
+        padding: 3% 5%;
+    }
+}

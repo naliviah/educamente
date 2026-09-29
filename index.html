@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela Inicial</title>
+  <icon rel="icon" href="logo1.png">
+    <script src="https://cdn.userway.org/widget.js" data-account="VVV2wxBC1o"></script>
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+
+</head>
+
+<body>
+
+  <header>
+  <img src="../educamente/imagens/logo1.png" alt="Logo Educamente" class="logo">
+  <nav>
+    <a href="#bloco1">O que é?</a>
+    <a href="#bloco4">Privacidade</a>
+    <a href="../educamente/php/excluir.php">Excluir conta</a>
+    <a href="../educamente/php/login.php" class="login-btn">Login</a>
+  </nav>
+</header>
+
+  <main>
+    <div class="texto">
+      <h1 style="color: #f5f5f5;">Ensinando a ler e escrever com diversão</h1>
+      <a href="../educamente/php/cadastro.php" class="cadastro-btn">Cadastre-se</a>
+    </div>
+    <img src="../educamente/imagens/drag.png" alt="Dragão" class="dragao">
+  </main>
+
+  <section class="info">
+    <div class="bloco" id="bloco1">
+      <img src="../educamente/imagens/2.png" alt="d1" class="ilustra">
+      <div class="texto">
+        <h2 class="titulo azul">O que é?</h2>
+        <p>
+          O EducaMente é uma plataforma de alfabetização totalmente gratuita,
+          que tem como objetivo trazer o conhecimento às pessoas de todas as idades,
+          criado por Ana Lívia Evangelista da Silva, Beatriz Cazula Mantovani e Nicole dos Santos Moreira.
+        </p>
+        <p>
+          Utilizamos de recursos interativos, animados e de fácil entendimento para que nossos alunos
+          não tenham dificuldade de compreensão e consigam se apoiar na nossa plataforma, que acompanha todo
+          o desenvolvimento deles ao longo do ano e disponibiliza atividades que são referentes ao nível
+          de ensino do aluno cadastrado.
+        </p>
+        <p>Somos confiáveis e seguimos a Base Nacional Comum Curricular (BNCC).</p>
+      </div>
+    </div>
+
+    <div class="bloco">
+      <div class="texto">
+        <h2 class="titulo roxo">Atividades Personalizadas</h2>
+        <p>
+          O EducaMente disponibiliza um material pedagógico para ser utilizado como tarefas de casa
+          ou material adicional de acordo com o conteúdo da aula.
+        </p>
+        <p>
+          Este material foi desenvolvido para apoiar a aprendizagem de forma personalizada, ajudando o(a)
+          estudante a reforçar suas competências e superar seus principais desafios. Combinando atividades
+          diversificadas, o conteúdo também traz jogos, canções e textos que tornam o processo mais leve e envolvente.
+        </p>
+      </div>
+      <img src="../educamente/imagens/3.png" alt="d2" class="ilustra">
+    </div>
+
+    <!-- Gamificação -->
+    <div class="bloco">
+      <img src="../educamente/imagens/24.png" alt=" d3" class="ilustra pequena">
+      <div class="texto">
+        <h2 class="titulo azul">Gamificação</h2>
+        <p>
+          O EducaMente adota uma proposta educativa baseada na gamificação,
+          tornando o aprendizado mais envolvente e prazeroso. Com desafios interativos e recompensas motivadoras,
+          a plataforma estimula a curiosidade das crianças e as convida a seguir explorando o conhecimento
+          de forma divertida.
+        </p>
+      </div>
+    </div>
+
+  <div class="bloco" id="bloco4">
+  <div class="texto">
+    <h2 class="titulo roxo">Privacidade</h2>
+    <p>
+      Nós valorizamos sua privacidade e protegemos suas informações com responsabilidade.
+      Coletamos apenas os dados necessários para melhorar sua experiência e garantir a segurança do serviço.
+      Não compartilhamos suas informações com terceiros, exceto quando exigido por lei ou essencial para o funcionamento do site.
+      Implementamos medidas de segurança avançadas e respeitamos seus direitos de acessar, corrigir ou excluir seus dados.
+      Para dúvidas ou solicitações, entre em contato conosco. Esta política pode ser atualizada periodicamente
+      para refletir melhorias em nossos serviços.
+    </p>
+  </div>
+  <img src="../educamente/imagens/4.png" alt="d4" class="ilustra pequena">
+</div>
+<footer>
+  <img src="../educamente/imagens/footer.png" alt="Ovos decorativos" class="footer-img">
+  <p>&copy; 2025 EducaMente. Todos os direitos reservados.</p>
+</footer>
+
+
+  </section>
+</body>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background-color: #0a2fa3;
+    color: white;
+  }
+
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    background-color: #142b91;
+  }
+
+  header img {
+    height: 50px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .login-btn {
+    padding: 5px 25px;
+    border-radius: 7px;
+    background-color: white;
+    color: #142b91;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+
+  .login-btn:hover {
+    background-color: #d0e1ff;
+  }
+
+  main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 90px 100px;
+  }
+
+  .texto {
+    max-width: 400px;
+  }
+
+  .texto h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+
+  .cadastro-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: white;
+    color: #142b91;
+    font-weight: bold;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .cadastro-btn:hover {
+    background-color: #d0e1ff;
+  }
+
+  .dragao {
+    max-width: 500px;
+  }
+
+  .info {
+    background-color: #f5f5f5;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .bloco,.bloco1, .bloco4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+
+
+
+  .texto {
+    max-width: 600px;
+    color: #333;
+  }
+
+  .texto p {
+    margin: 12px 0;
+    line-height: 1.5;
+  }
+
+  .titulo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .titulo.azul {
+    color: #0a2fa3;
+  }
+
+  .titulo.roxo {
+    color: #7a2fa3;
+  }
+
+  .ilustra {
+    max-width: 600px;
+  }
+
+  .ilustra.pequena {
+    max-width: 400px;
+  }
+
+
+  @media (max-width: 768px) {
+
+    .bloco,
+    .bloco.invertido {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .texto {
+      max-width: 100%;
+    }
+  }
+ footer {
+  position: relative;
+  text-align: center;/* fundo branco como na sua imagem */
+}
+
+footer .footer-img {
+  width: 100%;
+  display: block;
+}
+
+footer p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: 500;
+  color: #000; /* preto igual ao da imagem */
+}
+
+</style>
+
+</html>
